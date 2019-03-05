@@ -1,0 +1,228 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\Source\\AuxiliarC_V3_Alpha\\Beehouse.Essentials.Web.RazorComponents\\Beehouse.Essentials.Web.RazorComponents.csproj": {}
+  },
+  "projects": {
+    "D:\\Source\\AuxiliarC_V3_Alpha\\Beehouse.Essentials.Web.RazorComponents\\Beehouse.Essentials.Web.RazorComponents.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Source\\AuxiliarC_V3_Alpha\\Beehouse.Essentials.Web.RazorComponents\\Beehouse.Essentials.Web.RazorComponents.csproj",
+        "projectName": "Beehouse.Essentials.Web.RazorComponents",
+        "projectPath": "D:\\Source\\AuxiliarC_V3_Alpha\\Beehouse.Essentials.Web.RazorComponents\\Beehouse.Essentials.Web.RazorComponents.csproj",
+        "packagesPath": "C:\\Users\\raula\\.nuget\\packages\\",
+        "outputPath": "D:\\Source\\AuxiliarC_V3_Alpha\\Beehouse.Essentials.Web.RazorComponents\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\raula\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://dotnet.myget.org/F/aspnetcore-dev/api/v3/index.json": {},
+          "https://dotnetfeed.blob.core.windows.net/dotnet-core/index.json": {},
+          "https://dotnetfeed.blob.core.windows.net/dotnet-windowsdesktop/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {
+              "D:\\Source\\AuxiliarC_V3_Alpha\\Beehouse.Essentials.Web\\Beehouse.Essentials.Web.csproj": {
+                "projectPath": "D:\\Source\\AuxiliarC_V3_Alpha\\Beehouse.Essentials.Web\\Beehouse.Essentials.Web.csproj"
+              },
+              "D:\\Source\\AuxiliarC_V3_Alpha\\Beehouse.Essentials\\Beehouse.Essentials.csproj": {
+                "projectPath": "D:\\Source\\AuxiliarC_V3_Alpha\\Beehouse.Essentials\\Beehouse.Essentials.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Components": {
+              "target": "Package",
+              "version": "[3.0.0-preview-19075-0444, )"
+            },
+            "Microsoft.AspNetCore.Components.Build": {
+              "target": "Package",
+              "version": "[3.0.0-preview-19075-0444, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "D:\\Source\\AuxiliarC_V3_Alpha\\Beehouse.Essentials.Web\\Beehouse.Essentials.Web.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Source\\AuxiliarC_V3_Alpha\\Beehouse.Essentials.Web\\Beehouse.Essentials.Web.csproj",
+        "projectName": "Beehouse.Essentials.Web",
+        "projectPath": "D:\\Source\\AuxiliarC_V3_Alpha\\Beehouse.Essentials.Web\\Beehouse.Essentials.Web.csproj",
+        "packagesPath": "C:\\Users\\raula\\.nuget\\packages\\",
+        "outputPath": "D:\\Source\\AuxiliarC_V3_Alpha\\Beehouse.Essentials.Web\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\raula\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://dotnet.myget.org/F/aspnetcore-dev/api/v3/index.json": {},
+          "https://dotnetfeed.blob.core.windows.net/dotnet-core/index.json": {},
+          "https://dotnetfeed.blob.core.windows.net/dotnet-windowsdesktop/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {
+              "D:\\Source\\AuxiliarC_V3_Alpha\\Beehouse.Essentials\\Beehouse.Essentials.csproj": {
+                "projectPath": "D:\\Source\\AuxiliarC_V3_Alpha\\Beehouse.Essentials\\Beehouse.Essentials.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Components": {
+              "target": "Package",
+              "version": "[3.0.0-preview-19075-0444, )"
+            },
+            "Microsoft.AspNetCore.Http": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.Extensions.Http": {
+              "target": "Package",
+              "version": "[3.0.0-preview.19074.2, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "D:\\Source\\AuxiliarC_V3_Alpha\\Beehouse.Essentials\\Beehouse.Essentials.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Source\\AuxiliarC_V3_Alpha\\Beehouse.Essentials\\Beehouse.Essentials.csproj",
+        "projectName": "Beehouse.Essentials",
+        "projectPath": "D:\\Source\\AuxiliarC_V3_Alpha\\Beehouse.Essentials\\Beehouse.Essentials.csproj",
+        "packagesPath": "C:\\Users\\raula\\.nuget\\packages\\",
+        "outputPath": "D:\\Source\\AuxiliarC_V3_Alpha\\Beehouse.Essentials\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\raula\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://dotnet.myget.org/F/aspnetcore-dev/api/v3/index.json": {},
+          "https://dotnetfeed.blob.core.windows.net/dotnet-core/index.json": {},
+          "https://dotnetfeed.blob.core.windows.net/dotnet-windowsdesktop/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Identity": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[2.2.2, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "Unity.Abstractions": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}

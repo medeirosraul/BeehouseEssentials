@@ -1,0 +1,24 @@
+﻿@using Beehouse.Essentials.Web.Views;
+@inject Microsoft.AspNetCore.Components.Services.IUriHelper uriHelper
+@typeparam TViewModel
+
+<div class="col-12 mb-4">
+    <form>
+        @if (!string.IsNullOrWhiteSpace(Title))
+        {
+            <h5>@Title</h5>
+            <hr/>
+        }
+        @ChildContent
+    </form>
+</div>
+@functions{
+    [Parameter]
+    string Title { get; set; }
+
+    [Parameter]
+    Action OnSaveClick { get; set; }
+
+    [Parameter]
+    RenderFragment ChildContent { get; set; }
+}

@@ -1,0 +1,12 @@
+D:\Source\AuxiliarC_V3_Alpha\Beehouse.Essentials.Web\obj\Debug\netstandard2.0\Beehouse.Essentials.Web.csprojAssemblyReference.cache
+D:\Source\AuxiliarC_V3_Alpha\Beehouse.Essentials.Web\obj\Debug\netstandard2.0\Beehouse.Essentials.Web.csproj.CoreCompileInputs.cache
+D:\Source\AuxiliarC_V3_Alpha\Beehouse.Essentials.Web\obj\Debug\netstandard2.0\Beehouse.Essentials.Web.AssemblyInfoInputs.cache
+D:\Source\AuxiliarC_V3_Alpha\Beehouse.Essentials.Web\obj\Debug\netstandard2.0\Beehouse.Essentials.Web.AssemblyInfo.cs
+D:\Source\AuxiliarC_V3_Alpha\Beehouse.Essentials.Web\bin\Debug\netstandard2.0\Beehouse.Essentials.Web.deps.json
+D:\Source\AuxiliarC_V3_Alpha\Beehouse.Essentials.Web\bin\Debug\netstandard2.0\Beehouse.Essentials.Web.dll
+D:\Source\AuxiliarC_V3_Alpha\Beehouse.Essentials.Web\bin\Debug\netstandard2.0\Beehouse.Essentials.dll
+D:\Source\AuxiliarC_V3_Alpha\Beehouse.Essentials.Web\bin\Debug\netstandard2.0\Beehouse.Essentials.pdb
+D:\Source\AuxiliarC_V3_Alpha\Beehouse.Essentials.Web\obj\Debug\netstandard2.0\Beehouse.Essentials.Web.csproj.CopyComplete
+D:\Source\AuxiliarC_V3_Alpha\Beehouse.Essentials.Web\bin\Debug\netstandard2.0\Beehouse.Essentials.Web.pdb
+D:\Source\AuxiliarC_V3_Alpha\Beehouse.Essentials.Web\obj\Debug\netstandard2.0\Beehouse.Essentials.Web.dll
+D:\Source\AuxiliarC_V3_Alpha\Beehouse.Essentials.Web\obj\Debug\netstandard2.0\Beehouse.Essentials.Web.pdb

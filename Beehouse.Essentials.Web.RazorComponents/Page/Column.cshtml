@@ -1,0 +1,26 @@
+﻿@using System.Text
+<div class="col @Cols()">
+    @ChildContent
+</div>
+@functions
+{
+    [Parameter] RenderFragment ChildContent { get; set; }
+    [Parameter] string Xs { get; set; }
+    [Parameter] string Sm { get; set; }
+    [Parameter] string Md { get; set; }
+    [Parameter] string Lg { get; set; }
+    [Parameter] string Xl { get; set; }
+
+    private string Cols()
+    {
+        var cols = new StringBuilder();
+
+        if (string.IsNullOrWhiteSpace(Xs)) cols.Append($"col-{Xs} ");
+        if (string.IsNullOrWhiteSpace(Sm)) cols.Append($"col-sm-{Sm} ");
+        if (string.IsNullOrWhiteSpace(Md)) cols.Append($"col-md-{Md} ");
+        if (string.IsNullOrWhiteSpace(Lg)) cols.Append($"col-lg-{Lg} ");
+        if (string.IsNullOrWhiteSpace(Xl)) cols.Append($"col-xl-{Xl} ");
+
+        return cols.ToString();
+    }
+}

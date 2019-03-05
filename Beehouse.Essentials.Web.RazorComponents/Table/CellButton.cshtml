@@ -1,0 +1,8 @@
+﻿@using Beehouse.Essentials.Web.Components.Common;
+
+<RazorAnchor Style="@Action.ToElementStyle()" Icon="@Action.ToIconClass()" Size="ElementSize.Small" Url="@Url"></RazorAnchor>
+
+@functions{
+    [Parameter] ButtonActionType Action { get; set; }
+    [Parameter] string Url { get; set; }
+}

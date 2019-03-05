@@ -1,0 +1,102 @@
+﻿@inject Microsoft.AspNetCore.Components.Services.IUriHelper uriHelper
+@inject Beehouse.Essentials.Web.Api.IApiClient _apiClient
+<div class="form-group">
+    <label class="form-label">@Label</label>
+    <div class="input-group">
+        <input class="form-control" type="text" bind="@Argument"/>
+        <div class="input-group-append">
+            <button class="btn btn-primary" type="button" onclick="@OnSearchClick">Buscar</button>
+        </div>
+    </div>
+    <div class="overflow-visible @(ListVisible ? "visible" : "invisible")" style="height:5px;">
+        <div class="list-group">
+            @if (IsLoading)
+            {
+
+                <button class="list-group-item list-group-item-action" disabled><RazorLoading /></button>
+
+            }
+            else if (ListData == null)
+            {
+                <button class="list-group-item list-group-item-action" disabled><span class="text-muted">nenhum resultado</span></button>
+            }
+            else
+            {
+                @foreach (var item in ListData)
+                {
+                    <button class="list-group-item list-group-item-action" onclick="@(() => ItemClicked(item.Key, item.Value))">@item.Value</button>
+                }
+            }
+            <button class="list-group-item list-group-item-action text-muted text-center" onclick="@CloseList">Fechar</button>
+        </div>
+    </div>
+</div>
+@functions{
+    [Parameter] string Label { get; set; }
+
+    [Parameter] string SearchUrl { get; set; }
+
+    [Parameter] string Argument { get; set; }
+
+    [Parameter] string SelectedItem { get; set; }
+
+    [Parameter] Action<string> ArgumentChanged { get; set; }
+
+    [Parameter] Action<string> SelectedItemChanged { get; set; }
+
+    [Parameter] Func<Task> OnSearchClick { get; set; }
+
+    [Parameter] Func<Task> OnSelectItem { get; set; }
+
+
+    [Parameter] ICollection<KeyValuePair<string, string>> ListData { get; set; }
+    protected bool IsLoading { get; set; } = false;
+
+    protected bool ListVisible { get; set; } = false;
+
+    protected override async Task OnInitAsync()
+    {
+        if (!string.IsNullOrWhiteSpace(SearchUrl))
+        {
+            OnSearchClick += async () => await Search();
+        }
+    }
+
+    private async Task Search()
+    {
+        ListVisible = true;
+        IsLoading = true;
+
+        _apiClient.AddParameter("argument", Argument);
+        var resultList = await _apiClient.GetAsync<ICollection<KeyValuePair<string, string>>>(SearchUrl);
+
+        IsLoading = false;
+        if (resultList == null || resultList.Content == null) return;
+
+        ListData = resultList.Content;
+
+        StateHasChanged();
+    }
+
+    private void CloseList()
+    {
+        ListVisible = false;
+        ListData = null;
+
+        StateHasChanged();
+    }
+
+    private void ItemClicked(string key, string value)
+    {
+        // Apply selected values
+        SelectedItem = key;
+        Argument = value;
+
+        // Invoke events
+        SelectedItemChanged?.Invoke(key);
+        OnSelectItem?.Invoke();
+
+        // Close list div
+        CloseList();
+    }
+}

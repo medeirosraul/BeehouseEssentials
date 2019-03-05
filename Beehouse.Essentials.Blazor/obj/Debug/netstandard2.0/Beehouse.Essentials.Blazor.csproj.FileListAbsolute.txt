@@ -1,0 +1,9 @@
+D:\Source\AuxiliarC_V3_Alpha\Beehouse.Essentials.Blazor\bin\Debug\netstandard2.0\Beehouse.Essentials.Blazor.deps.json
+D:\Source\AuxiliarC_V3_Alpha\Beehouse.Essentials.Blazor\bin\Debug\netstandard2.0\Beehouse.Essentials.Blazor.dll
+D:\Source\AuxiliarC_V3_Alpha\Beehouse.Essentials.Blazor\bin\Debug\netstandard2.0\Beehouse.Essentials.Blazor.pdb
+D:\Source\AuxiliarC_V3_Alpha\Beehouse.Essentials.Blazor\obj\Debug\netstandard2.0\Beehouse.Essentials.Blazor.csproj.CoreCompileInputs.cache
+D:\Source\AuxiliarC_V3_Alpha\Beehouse.Essentials.Blazor\obj\Debug\netstandard2.0\Beehouse.Essentials.Blazor.AssemblyInfoInputs.cache
+D:\Source\AuxiliarC_V3_Alpha\Beehouse.Essentials.Blazor\obj\Debug\netstandard2.0\Beehouse.Essentials.Blazor.AssemblyInfo.cs
+D:\Source\AuxiliarC_V3_Alpha\Beehouse.Essentials.Blazor\obj\Debug\netstandard2.0\Beehouse.Essentials.Blazor.dll
+D:\Source\AuxiliarC_V3_Alpha\Beehouse.Essentials.Blazor\obj\Debug\netstandard2.0\Beehouse.Essentials.Blazor.pdb
+D:\Source\AuxiliarC_V3_Alpha\Beehouse.Essentials.Blazor\obj\Debug\netstandard2.0\Beehouse.Essentials.Blazor.csprojAssemblyReference.cache

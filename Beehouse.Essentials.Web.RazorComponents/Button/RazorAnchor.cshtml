@@ -1,0 +1,17 @@
+﻿@using Beehouse.Essentials.Web.Components.Common;
+
+<a class="btn btn-@Style.ToClassString() @Size.ToClassString("btn-")" href="@Url">
+    @if (!string.IsNullOrWhiteSpace(Icon))
+    {
+        <Icon Name="@Icon"></Icon>
+    }
+    @ChildContent
+</a>
+
+@functions{
+    [Parameter] RenderFragment ChildContent { get; set; }
+    [Parameter] ElementStyle Style { get; set; } = ElementStyle.Primary;
+    [Parameter] ElementSize Size { get; set; } = ElementSize.None;
+    [Parameter] string Icon { get; set; }
+    [Parameter] string Url { get; set; }
+}
