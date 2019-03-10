@@ -9,4 +9,3 @@ D:\Source\AuxiliarC_V3_Alpha\Beehouse.Essentials\obj\Debug\netstandard2.0\Beehou
 D:\Source\AuxiliarC_V3_Alpha\Beehouse.Essentials\obj\Debug\netstandard2.0\Beehouse.Essentials.csproj.CopyComplete
 D:\Source\AuxiliarC_V3_Alpha\Beehouse.Essentials\obj\Debug\netstandard2.0\Beehouse.Essentials.dll
 D:\Source\AuxiliarC_V3_Alpha\Beehouse.Essentials\obj\Debug\netstandard2.0\Beehouse.Essentials.pdb
-D:\Source\AuxiliarC_V3_Alpha\Beehouse.Essentials\obj\Debug\netstandard2.0\Beehouse.Essentials.csprojAssemblyReference.cache

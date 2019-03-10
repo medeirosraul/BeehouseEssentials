@@ -12,6 +12,7 @@
           "Beehouse.Essentials": "1.0.0",
           "Microsoft.AspNetCore.Components": "3.0.0-preview-19075-0444",
           "Microsoft.AspNetCore.Http": "2.2.0",
+          "Microsoft.AspNetCore.WebUtilities": "2.2.0",
           "Microsoft.Extensions.Http": "3.0.0-preview.19074.2",
           "NETStandard.Library": "2.0.3",
           "Newtonsoft.Json": "12.0.1"

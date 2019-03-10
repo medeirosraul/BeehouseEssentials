@@ -1,0 +1,26 @@
+﻿@inject Microsoft.AspNetCore.Components.Services.IUriHelper uriHelper
+@typeparam TViewModel
+
+<div class="col-12 mb-4">   
+    <EditForm Model="@Model" OnValidSubmit="@OnValidSubmit">
+        @if (!string.IsNullOrWhiteSpace(Title))
+        {
+            <h5>@Title</h5>
+            <hr />
+        }
+
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        @ChildContent
+    </EditForm>
+</div>
+@functions{
+    [Parameter] TViewModel Model { get; set; }
+
+    [Parameter] string Title { get; set; }
+
+    [Parameter] Func<Task> OnValidSubmit { get; set; }
+
+    [Parameter] RenderFragment ChildContent { get; set; }
+}
