@@ -83,7 +83,7 @@ namespace Beehouse.Essentials.Services
         /// <param name="tracking">Track entities?</param>
         /// <param name="query">Additional conditions</param>
         /// <returns></returns>
-        public override async Task<SearchResult<TUserEntity>> GetAsync(int page, int limit, bool tracking = false, IQueryable<TUserEntity> query = null)
+        public override async Task<SearchResult<TUserEntity>> GetAsync(int? page_nullable, int? limit_nullable, bool tracking = false, IQueryable<TUserEntity> query = null)
         {
             // Check if have additional conditions. If not, create a new condition.
             if (query == null) query = tracking ? Entities.AsTracking() : Entities.AsNoTracking();
@@ -92,7 +92,7 @@ namespace Beehouse.Essentials.Services
             query = query.Where(p => p.OwnedBy == OwnedBy);
 
             // Return base operations.
-            return await base.GetAsync(page, limit, tracking, query);
+            return await base.GetAsync(page_nullable, limit_nullable, tracking, query);
         }
 
         /// <summary>

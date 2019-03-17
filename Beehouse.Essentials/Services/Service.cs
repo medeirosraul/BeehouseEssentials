@@ -46,11 +46,13 @@ namespace Beehouse.Essentials.Services
             return await query.ToListAsync();
         }
 
-        public virtual async Task<SearchResult<TEntity>> GetAsync(int page, int limit, bool tracking = false, IQueryable<TEntity> query = null)
+        public virtual async Task<SearchResult<TEntity>> GetAsync(int? page_nullable, int? limit_nullable, bool tracking = false, IQueryable<TEntity> query = null)
         {
-            // Check param
-            page = page <= 0 ? 1 : page;
-            limit = limit <= 0 ? 10 : limit;
+            // Check arguments
+            page_nullable = page_nullable ?? 1;
+            limit_nullable = limit_nullable ?? 10;
+            int page = (int)(page_nullable <= 0 ? 1 : page_nullable);
+            int limit = (int)(limit_nullable<= 0 ? 10 : limit_nullable);
 
             // Check query
             if (query == null) query = tracking ? Entities.AsTracking() : Entities.AsNoTracking();
@@ -68,7 +70,7 @@ namespace Beehouse.Essentials.Services
                 Limit = limit,
                 Count = count,
                 HttpContext = HttpContext,
-                Result = await query.ToListAsync()
+                Result = await query.ToListAsync().ConfigureAwait(false)
             };
 
             return result;

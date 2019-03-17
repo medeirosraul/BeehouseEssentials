@@ -1,0 +1,15 @@
+﻿@using  Beehouse.Essentials.Web.Components.Common
+@using System.Linq.Expressions;
+@inject Microsoft.JSInterop.IJSRuntime JsRuntime;
+
+    <div class="form-group">
+        <label class="col-form-label">@Label</label>
+        <InputTextArea Class="form-control" Value="@Value" ValueChanged="@ValueChanged" ValueExpression="@ValueExpression"></InputTextArea>
+    </div>
+
+@functions{
+    [Parameter] string Label { get; set; }
+    [Parameter] string Value { get; set; }
+    [Parameter] EventCallback<string> ValueChanged { get; set; }
+    [Parameter] Expression<Func<string>> ValueExpression { get; set; }
+}
