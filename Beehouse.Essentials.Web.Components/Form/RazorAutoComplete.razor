@@ -1,0 +1,146 @@
+﻿@using System.Linq.Expressions
+@inject Microsoft.AspNetCore.Components.Services.IUriHelper uriHelper
+@inject Beehouse.Essentials.Web.Api.IApiClient _apiClient
+<div class="form-group">
+    <label class="form-label">@Label</label>
+    <div class="input-group">
+        @if (IsSelected)
+        {
+            <Input class="form-control" bind="@Argument" disabled/>
+        }
+        else
+        {
+            <Input class="form-control" bind="@Argument"/>
+        }
+        <div class="input-group-append">
+            @if (IsSelected)
+            {
+                <button class="btn btn-danger" type="button" onclick="@(async () => await OnClearClick())">Limpar</button>
+            }
+            else
+            {
+                <button class="btn btn-primary" type="button" onclick="@OnSearchClick">Buscar</button>
+            }
+
+        </div>
+    </div>
+    <small class="form-text text-muted">Digite o termo da busca e clique em "Buscar" para mostrar os resultados</small>
+    <div class="overflow-visible @(ListVisible ? "visible" : "invisible")" style="height:5px;">
+        <div class="list-group">
+            @if (IsLoading)
+            {
+
+                <button class="list-group-item list-group-item-action" type="button" style="z-index:2000" disabled><RazorLoading /></button>
+
+            }
+            else if (ListData == null)
+            {
+                <button class="list-group-item list-group-item-action" type="button" style="z-index:2000" disabled><span class="text-muted">nenhum resultado</span></button>
+            }
+            else
+            {
+                @foreach (var item in ListData)
+                {
+                    <button class="list-group-item list-group-item-action" type="button" style="z-index:2000" onclick="@(async () => await ItemSelected(item.Key, item.Value))">@item.Value</button>
+                }
+            }
+            <button class="list-group-item list-group-item-action text-muted text-center" type="button" style="z-index:2000" onclick="@CloseList">Fechar</button>
+        </div>
+    </div>
+</div>
+@functions{
+    // Value parameters
+    [Parameter] string Value { get; set; }
+    [Parameter] EventCallback<string> ValueChanged { get; set; }
+    [Parameter] Expression<Func<string>> ValueExpression { get; set; }
+
+    // Argument parameters
+    [Parameter] string Argument { get; set; }
+    [Parameter] EventCallback<string> ArgumentChanged { get; set; }
+
+    // Other parameters
+    [Parameter] string Label { get; set; }
+    [Parameter] string SearchUrl { get; set; }
+    [Parameter] ICollection<KeyValuePair<string, string>> ListData { get; set; }
+
+    // Events
+    [Parameter] Func<Task> OnSearchClick { get; set; }
+    [Parameter] Func<Task> OnSelectItem { get; set; }
+
+    // State properties
+    protected bool IsLoading { get; set; } = false;
+    protected bool IsSelected { get; set; } = false;
+    protected bool ListVisible { get; set; } = false;
+
+    protected override async Task OnInitAsync()
+    {
+        if (!string.IsNullOrWhiteSpace(SearchUrl))
+        {
+            OnSearchClick += async () => await Search();
+        }
+
+        if (!string.IsNullOrWhiteSpace(Value))
+        {
+            await GetItem(Value);
+        }
+    }
+
+    private async Task Search()
+    {
+        ListVisible = true;
+        IsLoading = true;
+
+        _apiClient.AddParameter("argument", Argument);
+        var resultList = await _apiClient.GetAsync<ICollection<KeyValuePair<string, string>>>(SearchUrl);
+
+        IsLoading = false;
+        if (resultList == null || resultList.Content == null) return;
+
+        ListData = resultList.Content;
+    }
+
+    private async Task GetItem(string value)
+    {
+        _apiClient.AddParameter("value", value);
+        var resultList = await _apiClient.GetAsync<ICollection<KeyValuePair<string, string>>>(SearchUrl);
+        var list = resultList?.Content;
+
+        if (list == null || list.Count == 0)
+            await OnClearClick();
+
+        var item = list.First();
+
+        await ItemSelected(item.Key, item.Value);
+    }
+
+    private async Task ItemSelected(string key, string value)
+    {
+        // Apply selected values
+        Value = key;
+        Argument = value;
+        await ValueChanged.InvokeAsync(key);
+        await ArgumentChanged.InvokeAsync(value);
+
+        // Is selected
+        IsSelected = true;
+
+        // Close list div
+        CloseList();
+    }
+
+    private async Task OnClearClick()
+    {
+        Value = "";
+        Argument = "";
+        await ValueChanged.InvokeAsync("");
+        await ArgumentChanged.InvokeAsync("");
+
+        IsSelected = false;
+    }
+
+       private void CloseList()
+    {
+        ListVisible = false;
+        ListData = null;
+    }
+}

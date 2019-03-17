@@ -1,15 +1,32 @@
 ﻿@using  Beehouse.Essentials.Web.Components.Common
 @using System.Linq.Expressions;
+@inject Microsoft.JSInterop.IJSRuntime JsRuntime;
 
-<div class="form-group">
-    <label class="col-form-label">@Label</label>
-    <InputText Class="form-control" bind-Value="@Value"></InputText>
-</div>
+    <div class="form-group">
+        <label class="col-form-label">@Label</label>
+        @if (Type == RazorInputType.Text)
+        {
+            <InputText Class="form-control" Value="@Value" ValueChanged="@ValueChanged" ValueExpression="@ValueExpression"></InputText>
+        }
+        else if (Type == RazorInputType.Price)
+        {
+        <div class="input-group">
+            <div class="input-group-prepend"><div class="input-group-text">R$</div></div>
+            <InputText Class="form-control price" Value="@Value" ValueChanged="@ValueChanged" ValueExpression="@ValueExpression"></InputText>
+        </div>
+        }
+    </div>
 
 @functions{
     [Parameter] string Label { get; set; }
     [Parameter] string Value { get; set; }
     [Parameter] EventCallback<string> ValueChanged { get; set; }
+    [Parameter] Expression<Func<string>> ValueExpression { get; set; }
     [Parameter] RazorInputType Type { get; set; }
 
+    protected override async Task OnAfterRenderAsync()
+    {
+        if(Type == RazorInputType.Price)
+            await JsRuntime.InvokeAsync<object>("ApplyMask"); 
+    }
 }

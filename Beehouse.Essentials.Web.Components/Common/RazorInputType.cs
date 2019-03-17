@@ -7,6 +7,7 @@ namespace Beehouse.Essentials.Web.Components.Common
     public enum RazorInputType
     {
         Text,
-        Number
+        Number,
+        Price
     }
 }
