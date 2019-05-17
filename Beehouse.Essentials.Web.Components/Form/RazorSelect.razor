@@ -1,4 +1,4 @@
-﻿@inject Microsoft.AspNetCore.Components.Services.IUriHelper uriHelper
+﻿@inject Microsoft.AspNetCore.Components.IUriHelper uriHelper
 @inject Beehouse.Essentials.Web.Api.IApiClient _apiClient
 <div class="form-group">
     <label class="form-label">@Label</label>
@@ -69,7 +69,10 @@
         var resultList = await _apiClient.GetAsync<ICollection<KeyValuePair<string, string>>>(SearchUrl);
 
         IsLoading = false;
-        if (resultList == null || resultList.Content == null) return;
+        if (resultList == null || resultList.Content == null)
+        {
+            return;
+        }
 
         ListData = resultList.Content;
     }

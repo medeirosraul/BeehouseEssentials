@@ -22,7 +22,7 @@ namespace Beehouse.Essentials.Web.Api
         }
 
         #region Get
-        public async Task<ApiResult<TResult>> GetAsync<TResult>(string resource) where TResult : class
+        public async Task<ApiResult<TResult>> GetAsync<TResult>(string resource)
         {
             // Result object
             var result = new ApiResult<TResult>();
@@ -39,9 +39,7 @@ namespace Beehouse.Essentials.Web.Api
             result.StatusMessage = response.StatusCode.ToString();
             string content = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
 
-            // Return result
-            if (!string.IsNullOrWhiteSpace(content))
-                result.Content = result.Content is string ? content as TResult : JsonConvert.DeserializeObject<TResult>(content);
+            result.Content = JsonConvert.DeserializeObject<TResult>(content);
 
             return result;
         }

@@ -1,0 +1,126 @@
+﻿@using System.Text
+@inject Microsoft.AspNetCore.Components.IUriHelper UriHelper
+
+<nav aria-label="...">
+    <ul class="pagination">
+        <li class="page-item @(IsFirstPage ? "disabled" : "")">
+            <button class="page-link" onclick="@(() => OnPageClick($"{BaseUrl}?page=1&limit={Limit}{GetQueryStringFilters()}", 1))" href="#">Primeira</button>
+        </li>
+
+        @for (int i = 0; i < LinkCount; i++)
+        {
+            int current = LinkInit + i;
+            if (current == Page)
+            {
+                <li class="page-item active" aria-current="page">
+                    <span class="page-link">@current <span class="sr-only">(current)</span></span>
+                </li>
+            }
+            else if (current <= PageCount)
+            {
+                <li class="page-item">
+                    <button class="page-link" onclick="@(() => OnPageClick($"{BaseUrl}?page={current}&limit={Limit}{GetQueryStringFilters()}", current))">@current</button>
+                </li>
+            }
+        }
+
+        <li class="page-item @(IsLastPage ? "disabled": "")">
+            <button class="page-link" onclick="@(() => OnPageClick($"{BaseUrl}?page={PageCount}&limit={Limit}{GetQueryStringFilters()}", PageCount))">Última</button>
+        </li>
+    </ul>
+</nav>
+
+@functions
+{
+    [Parameter] int Page { get; set; }
+    [Parameter] EventCallback<int> PageChanged { get; set; }
+
+    [Parameter] int Limit { get; set; }
+    [Parameter] EventCallback<int> LimitChanged { get; set; }
+
+    [Parameter] int Count { get; set; }
+    [Parameter] EventCallback<int> CountChanged { get; set; }
+
+    [Parameter] ICollection<KeyValuePair<string, string>> Filters { get; set; }
+    [Parameter] EventCallback<ICollection<KeyValuePair<string, string>>> FiltersChanged { get; set; }
+
+    string BaseUrl { get; set; }
+
+    // Configuration Variables
+    int LinkCount = 6;
+    int LinkInit = 1;
+
+
+    // State variables
+    bool IsFirstPage;
+    bool IsLastPage;
+    int PageCount;
+
+    protected override void OnParametersSet()
+    {
+        // Avoid zero
+        Limit = Limit == 0 ? 10 : Limit;
+        Page = Page == 0 ? 1 : Page;
+
+        // Calc page count
+        var pageCountFactor = (decimal)Count / (decimal)Limit;
+        PageCount = pageCountFactor % 1 != 0 || pageCountFactor < 1
+            ? (int)(pageCountFactor - (pageCountFactor % 1) + 1)
+            : (int)pageCountFactor;
+
+        IsFirstPage = Page == 1;
+        IsLastPage = Page == PageCount;
+        LinkInit = Page - LinkCount / 2 <= 1 ? 1 : Page - LinkCount / 2;
+
+        // Get Base url
+        BaseUrl = UriHelper.GetAbsoluteUri().Split('?')[0];
+    }
+
+    protected async Task OnPageClick(string uri, int page)
+    {
+        UriHelper.NavigateTo(uri, false);
+        await PageChanged.InvokeAsync(page);
+    }
+
+    public string GetQueryStringFilters()
+    {
+        // Check filters
+        if (Filters == null)
+        {
+            return "";
+        }
+
+
+
+        // Builder
+        var builder = new StringBuilder();
+
+        // Check all query items
+        foreach (var item in Filters)
+        {
+            // Check if is pagination value (page, limit, etc) and not a filter
+            if (IsPaginationValue(item.Key)) { continue; }
+
+            // Append &
+            builder.Append("&");
+
+            // Append filter to querystring
+            builder.Append(item.Key.ToLower() + "=" + item.Value);
+        }
+
+        // Returns querystring
+        return builder.ToString();
+    }
+
+    private bool IsPaginationValue(string s)
+    {
+        switch (s)
+        {
+            case "page":
+            case "limit":
+                return true;
+            default:
+                return false;
+        }
+    }
+}

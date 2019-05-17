@@ -1,5 +1,5 @@
 ﻿@using System.Linq.Expressions
-@inject Microsoft.AspNetCore.Components.Services.IUriHelper uriHelper
+@inject Microsoft.AspNetCore.Components.IUriHelper uriHelper
 @inject Beehouse.Essentials.Web.Api.IApiClient _apiClient
 <div class="form-group">
     <label class="form-label">@Label</label>
@@ -64,8 +64,8 @@
     [Parameter] ICollection<KeyValuePair<string, string>> ListData { get; set; }
 
     // Events
+    [Parameter] EventCallback<string> OnItemSelected { get; set; }
     [Parameter] Func<Task> OnSearchClick { get; set; }
-    [Parameter] Func<Task> OnSelectItem { get; set; }
 
     // State properties
     protected bool IsLoading { get; set; } = false;
@@ -94,8 +94,10 @@
         var resultList = await _apiClient.GetAsync<ICollection<KeyValuePair<string, string>>>(SearchUrl);
 
         IsLoading = false;
-        if (resultList == null || resultList.Content == null) return;
-
+        if (resultList == null || resultList.Content == null)
+        {
+            return;
+        }
         ListData = resultList.Content;
     }
 
@@ -106,7 +108,10 @@
         var list = resultList?.Content;
 
         if (list == null || list.Count == 0)
+        {
             await OnClearClick();
+        }
+
 
         var item = list.First();
 
@@ -120,6 +125,7 @@
         Argument = value;
         await ValueChanged.InvokeAsync(key);
         await ArgumentChanged.InvokeAsync(value);
+        await OnItemSelected.InvokeAsync(key);
 
         // Is selected
         IsSelected = true;
@@ -134,11 +140,12 @@
         Argument = "";
         await ValueChanged.InvokeAsync("");
         await ArgumentChanged.InvokeAsync("");
+        await OnItemSelected.InvokeAsync("");
 
         IsSelected = false;
     }
 
-       private void CloseList()
+    private void CloseList()
     {
         ListVisible = false;
         ListData = null;

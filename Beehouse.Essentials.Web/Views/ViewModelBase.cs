@@ -11,7 +11,7 @@ namespace Beehouse.Essentials.Web.Views
         public ViewModelState State { get; set; }
 
         public Func<TModel, ViewModelBase<TModel>> ToViewModelMap;
-        public Func<ViewModelBase<TModel>, TModel> ToModelMap;
+        public Func<TModel> ToModelMap;
     }
 
     public static class ViewModelBaseExtensions{
@@ -22,7 +22,7 @@ namespace Beehouse.Essentials.Web.Views
 
         public static TModel GetModel<TModel>(this ViewModelBase<TModel> view)
         {
-            return view.ToModelMap.Invoke(view);
+            return view.ToModelMap.Invoke();
         }
     }
 }

@@ -1,0 +1,103 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETStandard,Version=v2.1": {
+      "Beehouse.Essentials/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "compile": {
+          "bin/placeholder/Beehouse.Essentials.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Beehouse.Essentials.dll": {}
+        }
+      },
+      "Beehouse.Essentials.Web/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "Beehouse.Essentials": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Beehouse.Essentials.Web.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Beehouse.Essentials.Web.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Beehouse.Essentials/1.0.0": {
+      "type": "project",
+      "path": "../Beehouse.Essentials/Beehouse.Essentials.csproj",
+      "msbuildProject": "../Beehouse.Essentials/Beehouse.Essentials.csproj"
+    },
+    "Beehouse.Essentials.Web/1.0.0": {
+      "type": "project",
+      "path": "../Beehouse.Essentials.Web/Beehouse.Essentials.Web.csproj",
+      "msbuildProject": "../Beehouse.Essentials.Web/Beehouse.Essentials.Web.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETStandard,Version=v2.1": [
+      "Beehouse.Essentials >= 1.0.0",
+      "Beehouse.Essentials.Web >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\raula\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "D:\\Source\\AuxiliarC_V3_Alpha\\Beehouse.Essentials.Web.Components\\Beehouse.Essentials.Web.Components.csproj",
+      "projectName": "Beehouse.Essentials.Web.Components",
+      "projectPath": "D:\\Source\\AuxiliarC_V3_Alpha\\Beehouse.Essentials.Web.Components\\Beehouse.Essentials.Web.Components.csproj",
+      "packagesPath": "C:\\Users\\raula\\.nuget\\packages\\",
+      "outputPath": "D:\\Source\\AuxiliarC_V3_Alpha\\Beehouse.Essentials.Web.Components\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\raula\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "netstandard2.1"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "projectReferences": {
+            "D:\\Source\\AuxiliarC_V3_Alpha\\Beehouse.Essentials.Web\\Beehouse.Essentials.Web.csproj": {
+              "projectPath": "D:\\Source\\AuxiliarC_V3_Alpha\\Beehouse.Essentials.Web\\Beehouse.Essentials.Web.csproj"
+            },
+            "D:\\Source\\AuxiliarC_V3_Alpha\\Beehouse.Essentials\\Beehouse.Essentials.csproj": {
+              "projectPath": "D:\\Source\\AuxiliarC_V3_Alpha\\Beehouse.Essentials\\Beehouse.Essentials.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "netstandard2.1": {
+        "imports": [
+          "net461"
+        ],
+        "assetTargetFallback": true,
+        "warn": true
+      }
+    }
+  }
+}

@@ -15,11 +15,16 @@
     {
         var cols = new StringBuilder();
 
-        if (string.IsNullOrWhiteSpace(Xs)) cols.Append($"col-{Xs} ");
-        if (string.IsNullOrWhiteSpace(Sm)) cols.Append($"col-sm-{Sm} ");
-        if (string.IsNullOrWhiteSpace(Md)) cols.Append($"col-md-{Md} ");
-        if (string.IsNullOrWhiteSpace(Lg)) cols.Append($"col-lg-{Lg} ");
-        if (string.IsNullOrWhiteSpace(Xl)) cols.Append($"col-xl-{Xl} ");
+        if (string.IsNullOrWhiteSpace(Xs))
+        {
+            cols.Append($"col-{Xs} ");
+        }
+
+
+        if (string.IsNullOrWhiteSpace(Sm)) { cols.Append($"col-sm-{Sm} "); }
+        if (string.IsNullOrWhiteSpace(Md)) { cols.Append($"col-md-{Md} "); }
+        if (string.IsNullOrWhiteSpace(Lg)) { cols.Append($"col-lg-{Lg} "); }
+        if (string.IsNullOrWhiteSpace(Xl)) { cols.Append($"col-xl-{Xl} "); }
 
         return cols.ToString();
     }

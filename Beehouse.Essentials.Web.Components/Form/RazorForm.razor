@@ -1,7 +1,7 @@
-﻿@inject Microsoft.AspNetCore.Components.Services.IUriHelper uriHelper
+﻿@inject Microsoft.AspNetCore.Components.IUriHelper uriHelper
 @typeparam TViewModel
 
-<div class="col-12 mb-4">   
+<div class="col-12 mb-4">
     <EditForm Model="@Model" OnValidSubmit="@OnValidSubmit">
         @if (!string.IsNullOrWhiteSpace(Title))
         {

@@ -1,0 +1,83 @@
+﻿@using Beehouse.Essentials.Web.Components.Loading
+@using Beehouse.Essentials.Web.Views
+@typeparam TViewModel
+
+<div class="col-12">
+    @if (!string.IsNullOrWhiteSpace(Title))
+    {
+
+        <h4>@Title</h4>
+        <hr />
+    }
+    @if (Menu != null)
+    {
+        <div class="mb-2">
+            @Menu
+        </div>
+    }
+    @if (Context == null || Context.Items == null)
+    {
+        <RazorLoading />
+    }
+    else
+    {
+        if (Context.Count > 0)
+        {
+
+            <table class="table table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        @Header
+                        @if (ActionsTemplate != null)
+                        {
+                            <th width="150px" class="text-right">Ações</th>
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Context.Items)
+                    {
+                        <tr>
+                            @RowTemplate(item)
+                            @if (ActionsTemplate != null)
+                            {
+                                <td class="text-right">
+                                    @ActionsTemplate(item)
+                                </td>
+
+                            }
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <RazorPagination Page="@Context.Page" PageChanged="@OnPageChanged" Limit="@Context.Limit" Count="@Context.Count" Filters="@Context.Filters" />
+                    </tr>
+                </tfoot>
+        </table>
+        }
+        else
+        {
+            <p class="text-muted">há 0 itens nesta lista</p>
+        }
+    }
+</div>
+
+@functions
+{
+    [Parameter] string Title { get; set; }
+    [Parameter] ICollection<KeyValuePair<string, string>> Filters { get; set; }
+
+    [Parameter] IListContext<TViewModel> Context { get; set; }
+
+    [Parameter] RenderFragment Menu { get; set; }
+    [Parameter] RenderFragment Header { get; set; }
+    [Parameter] RenderFragment<TViewModel> RowTemplate { get; set; }
+    [Parameter] RenderFragment<TViewModel> ActionsTemplate { get; set; }
+
+    protected async Task OnPageChanged(int p)
+    {
+        Context.Page = p;
+        await Context.Fill();
+    }
+}

@@ -1,0 +1,15 @@
+﻿@using Microsoft.AspNetCore.Components.Forms
+@inject Beehouse.Essentials.Web.Js.IJSInteropManager JSInteropManager
+@functions
+{      
+    protected override async Task OnAfterRenderAsync()
+    {
+        await JSInteropManager.Run();
+        await base.OnAfterRenderAsync();
+    }
+
+    protected void Teste()
+    {
+
+    }
+}

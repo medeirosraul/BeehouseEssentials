@@ -1,0 +1,6 @@
+D:\Source\AuxiliarC_V3_Alpha\Beehouse.Essentials.Data\obj\Debug\netstandard2.0\Beehouse.Essentials.Data.csprojAssemblyReference.cache
+D:\Source\AuxiliarC_V3_Alpha\Beehouse.Essentials.Data\obj\Debug\netstandard2.0\Beehouse.Essentials.Data.csproj.CoreCompileInputs.cache
+D:\Source\AuxiliarC_V3_Alpha\Beehouse.Essentials.Data\obj\Debug\netstandard2.0\Beehouse.Essentials.Data.AssemblyInfoInputs.cache
+D:\Source\AuxiliarC_V3_Alpha\Beehouse.Essentials.Data\obj\Debug\netstandard2.0\Beehouse.Essentials.Data.AssemblyInfo.cs
+D:\Source\AuxiliarC_V3_Alpha\Beehouse.Essentials.Data\bin\Debug\netstandard2.0\Beehouse.Essentials.Data.deps.json
+D:\Source\AuxiliarC_V3_Alpha\Beehouse.Essentials.Data\bin\Debug\netstandard2.0\Beehouse.Essentials.Data.dll

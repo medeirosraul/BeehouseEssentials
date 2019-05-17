@@ -1,5 +1,5 @@
 ﻿using Beehouse.Essentials.Entities;
-using Microsoft.AspNetCore.Components.Services;
+using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;

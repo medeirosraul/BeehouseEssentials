@@ -1,0 +1,52 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\Source\\AuxiliarC_V3_Alpha\\Beehouse.Essentials\\Beehouse.Essentials.csproj": {}
+  },
+  "projects": {
+    "D:\\Source\\AuxiliarC_V3_Alpha\\Beehouse.Essentials\\Beehouse.Essentials.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Source\\AuxiliarC_V3_Alpha\\Beehouse.Essentials\\Beehouse.Essentials.csproj",
+        "projectName": "Beehouse.Essentials",
+        "projectPath": "D:\\Source\\AuxiliarC_V3_Alpha\\Beehouse.Essentials\\Beehouse.Essentials.csproj",
+        "packagesPath": "C:\\Users\\raula\\.nuget\\packages\\",
+        "outputPath": "D:\\Source\\AuxiliarC_V3_Alpha\\Beehouse.Essentials\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\raula\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}

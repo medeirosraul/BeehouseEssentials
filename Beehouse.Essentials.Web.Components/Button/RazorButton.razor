@@ -1,6 +1,6 @@
 ﻿@using Beehouse.Essentials.Web.Components.Common;
 @using Beehouse.Essentials.Web.Components.Icon;
-@inject Microsoft.AspNetCore.Components.Services.IUriHelper uriHelper
+@inject Microsoft.AspNetCore.Components.IUriHelper uriHelper
 
 <button class="btn btn-@Style.ToClassString() mr-2" onclick="@OnClick">
     @if (!string.IsNullOrWhiteSpace(Icon))

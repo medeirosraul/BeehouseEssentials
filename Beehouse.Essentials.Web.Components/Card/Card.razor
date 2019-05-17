@@ -1,4 +1,4 @@
-﻿<div class="card shadow">
+﻿<div class="card shadow @Classes">
     @if (!string.IsNullOrWhiteSpace(Title))
     {
         <div class="card-header">
@@ -12,4 +12,5 @@
 @functions{
     [Parameter] RenderFragment ChildContent { get; set; }
     [Parameter] string Title { get; set; }
+    [Parameter] string Classes { get; set; }
 }

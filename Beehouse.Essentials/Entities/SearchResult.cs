@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 
 namespace Beehouse.Essentials.Entities
 {
-    public class SearchResult<T> where T:class
+    public class SearchResult<T>
     {
         [JsonIgnore]
         public HttpContext HttpContext { get; set; }
